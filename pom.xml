@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.12</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.huangzb</groupId>
+    <artifactId>my_quick_server</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>my_quick_server</name>
+    <description>my_quick_server</description>
+    <!--多模块配置 父模块打包类型必须为pom-->
+    <packaging>pom</packaging>
+    <modules>
+        <module>common</module>
+        <module>admin</module>
+    </modules>
+    <!--多模块配置 父模块打包类型必须为pom-->
+
+    <!--引用依赖版本。整个项目版本都是在此配置-->
+    <properties>
+        <java.version>1.8</java.version>
+        <pagehelper.boot.version>1.4.2</pagehelper.boot.version>
+        <oshi.version>6.1.6</oshi.version>
+        <swagger.version>3.0.0</swagger.version>
+        <hutool.version>5.8.3</hutool.version>
+        <poi.version>5.2.2</poi.version>
+        <druid.version>1.2.11</druid.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <database.version>3.5.2</database.version>
+        <oracle.version>11.2.0.3</oracle.version>
+    </properties>
+
+    <dependencies>
+        <!--【spring boot框架】spring web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--【spring boot框架】热部署开发者工具，可以不重启项目更新代码-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <!--【spring boot框架】免写get，set方法-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--【spring boot框架】测试包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--【druid启动器】Druid starter-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+
+        <!--【mybatis-plus使用】mysql依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--【mybatis-plus使用】mybatis-plus依赖-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!--【分页插件】pageHelper 分页插件 https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.boot.version}</version>
+        </dependency>
+
+        <!--【swagger工具-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <!--【hutool工具类】-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <!--【系统信息插件】获取系统信息 -->
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!--动态数据源插件-->
+        <dependency>
+            <!--使用文档 https://www.kancloud.cn/tracy5546/dynamic-datasource/2264611-->
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>${database.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${oracle.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!--该插件作用是打一个可运行的包，必须要写在需要打包的项目里。这里的父模块不需要打包运行，所以删掉该插件。-->
+    <!--<build>-->
+    <!--    <plugins>-->
+    <!--        <plugin>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-maven-plugin</artifactId>-->
+    <!--            <configuration>-->
+    <!--                <excludes>-->
+    <!--                    <exclude>-->
+    <!--                        <groupId>org.projectlombok</groupId>-->
+    <!--                        <artifactId>lombok</artifactId>-->
+    <!--                    </exclude>-->
+    <!--                </excludes>-->
+    <!--            </configuration>-->
+    <!--        </plugin>-->
+    <!--    </plugins>-->
+    <!--</build>-->
+
+</project>
