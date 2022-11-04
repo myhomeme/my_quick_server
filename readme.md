@@ -72,15 +72,15 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
           driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
         slave_1:
-          url: jdbc:mysql://172.18.231.40:8066/esb_jlyd?useUnicode=true&characterEncoding=utf8
-          username: esb_jlyd
-          password: esb_jlyd
+          url: jdbc:mysql://*:8066/*?useUnicode=true&characterEncoding=utf8
+          username: *
+          password: *
           driver-class-name: com.mysql.jdbc.Driver
         slave_2:
           driverClassName: oracle.jdbc.OracleDriver
-          url: jdbc:oracle:thin:@//172.18.238.234:1524/tthradb
-          username: esbdb
-          password: Paas#123
+          url: jdbc:oracle:thin:@//*:1524/*
+          username: *
+          password: *
 ```
 
 ### 3.2.2 使用
@@ -100,9 +100,9 @@ spring:
 
 # 4.更新日志
 
-##  v2.0.0
+##  v1.0.0
 
-- v2.0.0 2022-04-22
+- v1.0.0 2022-04-22
   - 1.框架依赖完成spring boot+mybatis plus+swagger+druid
   - 2.增加mybatis plus的代码生成器
 
